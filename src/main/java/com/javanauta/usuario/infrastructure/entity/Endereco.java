@@ -1,15 +1,13 @@
 package com.javanauta.usuario.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity //isso aqui é pra dizer que é uma tabela do banco de dados //
 @Table(name = "endereco") //especificação do nome da tabela //
 public class Endereco {
