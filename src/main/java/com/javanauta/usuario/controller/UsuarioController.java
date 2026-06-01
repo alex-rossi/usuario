@@ -8,6 +8,7 @@ import com.javanauta.usuario.infrastructure.entity.Usuario;
 import com.javanauta.usuario.infrastructure.exceptions.ConflictException;
 import com.javanauta.usuario.infrastructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
+import org.osgi.annotation.bundle.Header;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -63,5 +64,17 @@ public class UsuarioController {
     public ResponseEntity<TelefoneDTO> atualizaTelefone(@RequestParam("id") Long id, @RequestBody TelefoneDTO dto){
 
         return ResponseEntity.ok(usuarioService.atualizaTelefone(id, dto));
+    }
+
+    @PostMapping("/endereco")
+    public ResponseEntity<EnderecoDTO> cadastraEndereco(@RequestHeader("Authorization") String token, @RequestBody EnderecoDTO dto) {
+
+        return ResponseEntity.ok(usuarioService.cadastraEndereco(token, dto));
+    }
+
+    @PostMapping("/telefone")
+    public ResponseEntity<TelefoneDTO> cadastraTelefone(@RequestHeader("Authorization") String token, @RequestBody TelefoneDTO dto){
+
+        return ResponseEntity.ok(usuarioService.cadastraTelefone(token, dto));
     }
 }
