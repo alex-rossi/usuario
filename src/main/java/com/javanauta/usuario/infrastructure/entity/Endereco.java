@@ -27,5 +27,7 @@ public class Endereco {
     private String estado;
     @Column(name = "cep", length = 8)
     private Long cep;
+    @Column(name = "usuario_id")
+    private Long usuario_id;
 
 }
